@@ -4,7 +4,7 @@ int const plantCount = 2; //tell me how many plants you have
 int thresholds[] = {500,300}; //threshold of water per plant 
 // dry is: 0,540 // 1,383
 int addr = 0; //eeprom address
-int minutes_to_eeprom = 1; //every N minutes, write to eeprom
+int minutes_to_eeprom = 10; //every N minutes, write to eeprom
 int counter = 0; 
 byte value;
 int eeprom_read_wait = 1;
