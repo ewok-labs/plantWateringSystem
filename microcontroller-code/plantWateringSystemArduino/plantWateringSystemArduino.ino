@@ -1,5 +1,5 @@
-int const plantCount = 2; //tell me how many plants you have
-int thresholds[] = {700,800}; //threshold of water per plant 
+int const plantCount = 1; //tell me how many plants you have
+int thresholds[] = {450}; //threshold of water per plant 
 
 void setup() {
    Serial.begin(9600);  
