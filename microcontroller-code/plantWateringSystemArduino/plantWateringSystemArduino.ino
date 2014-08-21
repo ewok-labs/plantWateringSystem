@@ -10,28 +10,29 @@ byte value;
 int eeprom_read_wait = 1;
 
 //booleans for debug, settings, etc
-boolean EEPROM_READ = true; 
+boolean EEPROM_READ = false; 
 boolean SERIAL_LOG = true;
-boolean EEPROM_WRITE = true;
-boolean DEBUG = true; 
+boolean EEPROM_WRITE = false;
+boolean HELP = true;
+boolean DEBUG = false; 
 boolean DEBUG_LV2 = false; 
-boolean DEBUG_LV3 = true; 
+boolean DEBUG_LV3 = false; 
 
 void setup() {
    Serial.begin(9600);  
-   if (DEBUG) Serial.println("Started Watering System");
-   if (DEBUG) Serial.println("Flags are:");
-   if (DEBUG) Serial.println("DEBUG: 1 (obviously)");
-   if (DEBUG) Serial.print("DEBUG_LV2: ");
-   if (DEBUG) Serial.println(DEBUG_LV2);
-   if (DEBUG) Serial.print("DEBUG_LV3: ");
-   if (DEBUG) Serial.println(DEBUG_LV3);
-   if (DEBUG) Serial.print("EEPROM_READ: ");
-   if (DEBUG) Serial.println(EEPROM_READ);
-   if (DEBUG) Serial.print("EEPROM_WRITE: ");
-   if (DEBUG) Serial.println(EEPROM_WRITE);
-   if (DEBUG) Serial.print("SERIAL_LOG: ");
-   if (DEBUG) Serial.println(SERIAL_LOG);
+   if (HELP) Serial.println("Started Watering System");
+   if (HELP) Serial.println("Flags are:");
+   if (HELP) Serial.println("DEBUG: 1 (obviously)");
+   if (HELP) Serial.print("DEBUG_LV2: ");
+   if (HELP) Serial.println(DEBUG_LV2);
+   if (HELP) Serial.print("DEBUG_LV3: ");
+   if (HELP) Serial.println(DEBUG_LV3);
+   if (HELP) Serial.print("EEPROM_READ: ");
+   if (HELP) Serial.println(EEPROM_READ);
+   if (HELP) Serial.print("EEPROM_WRITE: ");
+   if (HELP) Serial.println(EEPROM_WRITE);
+   if (HELP) Serial.print("SERIAL_LOG: ");
+   if (HELP) Serial.println(SERIAL_LOG);
    
    //when boot reads the whole EEPROM to serial (hopefully a computer is listening)
    while (addr < 512 && EEPROM_READ ){
@@ -42,9 +43,9 @@ void setup() {
     if (EEPROM_READ) Serial.println();
     addr = addr++;     // advance to the next address of the EEPROM
     delay(eeprom_read_wait);
-  }    
-  addr = 0;
- if (DEBUG) Serial.println("Setup done, looping from now on.");
+ }    
+ addr = 0;
+ Serial.println("begin");
 }
 
 void loop() {
